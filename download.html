@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download LoginTab — Free Anti-Detect Browser</title>
+    <meta name="description"
+        content="Download LoginTab for Windows and macOS. Free local edition with unlimited profiles, anti-detection, and visual automation.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23bb86fc'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>L</text></svg>">
+    <style>
+        .download-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-content {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .download-version {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(3, 218, 198, 0.1);
+            border: 1px solid rgba(3, 218, 198, 0.2);
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--teal);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .download-title {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .download-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            min-width: 240px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .download-btn .platform-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .download-btn .platform-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .download-btn .platform-info {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .download-note {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-top: 24px;
+        }
+
+        .download-note i {
+            color: var(--teal);
+        }
+
+        .info-section {
+            padding: 80px 0;
+            background: var(--bg-surface);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+        }
+
+        .info-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h3 i {
+            color: var(--accent);
+        }
+
+        .info-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .info-card li i {
+            color: var(--teal);
+            font-size: 12px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .steps-section {
+            padding: 80px 0;
+        }
+
+        .step-list {
+            max-width: 680px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            border: 1px solid var(--border-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- NAVIGATION                             -->
+    <!-- ═══════════════════════════════════════ -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                LoginTab
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="index.html#pricing" class="btn btn-outline">View Pricing</a>
+                <a href="#download" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- DOWNLOAD HERO                          -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="download-hero" id="download">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="download-content reveal">
+                <div class="download-version">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Latest Version: v4.0.12 — Released Feb 2026
+                </div>
+                <h1 class="download-title">
+                    Download LoginTab<br>
+                    <span class="gradient-text">100% Free Forever</span>
+                </h1>
+                <p class="download-subtitle">
+                    The most advanced anti-detect browser with unlimited profiles,
+                    visual automation, and team management. Zero subscription required.
+                </p>
+
+                <div class="download-buttons">
+                    <a href="#" class="download-btn" id="downloadWindows">
+                        <i class="fa-brands fa-windows platform-icon"></i>
+                        <div class="platform-name">Windows</div>
+                        <div class="platform-info">Windows 10+ (64-bit)</div>
+                    </a>
+                    <a href="#" class="download-btn" id="downloadMac">
+                        <i class="fa-brands fa-apple platform-icon"></i>
+                        <div class="platform-name">macOS</div>
+                        <div class="platform-info">Universal (Intel & Apple Silicon)</div>
+                    </a>
+                </div>
+
+                <p class="download-note">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Open source · No telemetry · EU-compliant ·
+                    <a href="index.html#pricing" style="color: var(--accent);">Upgrade to Cloud</a> for sync & backup
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- SYSTEM REQUIREMENTS & FEATURES         -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card reveal">
+                    <h3>
+                        <i class="fa-solid fa-microchip"></i>
+                        System Requirements
+                    </h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>Windows:</strong> Windows 10 or later (64-bit only)</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>macOS:</strong> macOS 11 Big Sur or later (Intel & M1/M2/M3)</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>RAM:</strong> Minimum 4GB (8GB+ recommended for heavy use)</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>Storage:</strong> 2GB free disk space</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>Network:</strong> Internet connection for profile sync (optional)</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-card reveal">
+                    <h3>
+                        <i class="fa-solid fa-star"></i>
+                        What's Included (Free)
+                    </h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>Unlimited profiles</strong> — No caps, no limits</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>Anti-detect engine</strong> — Zero Noise, CDP spoofing</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>Visual automation</strong> — Drawflow editor, 16+ node types</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>Local team sharing</strong> — Share profiles via LAN/VPN</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>Proxy support</strong> — HTTP, SOCKS5, residential</div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div><strong>No telemetry</strong> — 100% privacy, no tracking</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- INSTALLATION STEPS                     -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="steps-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Quick Start</div>
+                <h2 class="section-title">Up and Running<br>In 3 Minutes</h2>
+            </div>
+            <div class="step-list">
+                <div class="step-item reveal reveal-delay-1">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Download & Install</h4>
+                        <p>Click the download button above for your OS. Run the installer and follow the prompts. No
+                            admin rights required on Windows.</p>
+                    </div>
+                </div>
+                <div class="step-item reveal reveal-delay-2">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Launch LoginTab</h4>
+                        <p>Open the app and create your first profile. Choose a platform (Windows/macOS), add a proxy
+                            (optional), and click "Create Profile".</p>
+                    </div>
+                </div>
+                <div class="step-item reveal reveal-delay-3">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Start Browsing Undetected</h4>
+                        <p>Click "Open" to launch the browser. Your fingerprint is locked, timezone is spoofed, and
+                            WebRTC is masked. Test on IPHey or Pixelscan — you'll see "Trusted" status.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CTA SECTION                            -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Need Cloud Sync & Team Features?</h2>
+                <p>Upgrade to Cloud Pro for real-time profile sync, automated backups, team collaboration with RBAC, and
+                    €10/month Market credits.</p>
+                <div class="cta-actions">
+                    <a href="index.html#pricing" class="btn btn-primary btn-lg">
+                        <i class="fa-solid fa-cloud"></i> View Cloud Plans
+                    </a>
+                    <a href="index.html" class="btn btn-outline btn-lg">
+                        <i class="fa-solid fa-home"></i> Back to Homepage
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- FOOTER                                 -->
+    <!-- ═══════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        LoginTab
+                    </a>
+                    <p>The most advanced anti-detect browser for teams. Manage thousands of undetectable profiles with
+                        real hardware fingerprinting.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="#">Changelog</a></li>
+                        <li><a href="#">API Docs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="download.html">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 LoginTab. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">GDPR</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Platform detection & download logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadWindows = document.getElementById('downloadWindows');
+            const downloadMac = document.getElementById('downloadMac');
+
+            // Detect user's platform
+            const isWindows = navigator.platform.toLowerCase().includes('win');
+            const isMac = navigator.platform.toLowerCase().includes('mac');
+
+            // Auto-highlight user's platform
+            if (isWindows) {
+                downloadWindows.style.borderColor = 'var(--accent)';
+                downloadWindows.style.boxShadow = '0 0 20px rgba(187, 134, 252, 0.15)';
+            } else if (isMac) {
+                downloadMac.style.borderColor = 'var(--accent)';
+                downloadMac.style.boxShadow = '0 0 20px rgba(187, 134, 252, 0.15)';
+            }
+
+            // ========================================
+            // SETUP INSTRUCTIONS (READ THIS FIRST!)
+            // ========================================
+            // 
+            // Your .exe and .dmg files are TOO LARGE to host on Vercel (1GB each).
+            // Solution: GitHub Releases with a PUBLIC repo (only for releases, source stays private)
+            //
+            // STEP 1: Create a PUBLIC repo for releases only
+            //   - Go to: https://github.com/new
+            //   - Name: LoginTab-Releases (or LoginTab-Downloads)
+            //   - Visibility: PUBLIC ← This is OK! Only contains release files, no source code
+            //   - Create repository
+            //
+            // STEP 2: Initialize the repo (optional)
+            //   mkdir LoginTab-Releases
+            //   cd LoginTab-Releases
+            //   echo "# LoginTab Downloads" > README.md
+            //   git init
+            //   git add .
+            //   git commit -m "Initial commit"
+            //   git remote add origin https://github.com/YOUR-USERNAME/LoginTab-Releases.git
+            //   git push -u origin main
+            //
+            // STEP 3: Create a Release
+            //   - Go to: https://github.com/YOUR-USERNAME/LoginTab-Releases/releases/new
+            //   - Tag: v4.0.12
+            //   - Title: LoginTab v4.0.12
+            //   - Description: "Latest stable release"
+            //   - Upload files as Assets:
+            //     * LoginTab-Setup-4.0.12-Windows-x64.exe (~1GB)
+            //     * LoginTab-4.0.12-Universal.dmg (~1GB)
+            //   - Publish release
+            //
+            // STEP 4: Update the GITHUB_RELEASES_REPO below
+            //   Format: YOUR-USERNAME/LoginTab-Releases
+            //
+            // Example final URLs:
+            //   https://github.com/ngkienmkqn/LoginTab-Releases/releases/download/v4.0.12/LoginTab-Setup-4.0.12-Windows-x64.exe
+            //
+            // ========================================
+
+            const GITHUB_RELEASES_REPO = 'ngkienmkqn/LoginTab-Releases'; // ✅ Setup complete!
+            const VERSION = '4.0.12'; // No 'v' prefix
+
+            const WINDOWS_URL = `https://github.com/${GITHUB_RELEASES_REPO}/releases/download/${VERSION}/LoginTab_Setup-4.0.12.exe`;
+            const MAC_URL = `https://github.com/${GITHUB_RELEASES_REPO}/releases/download/${VERSION}/LoginTab-4.0.11.dmg`;
+
+            downloadWindows.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                if (GITHUB_RELEASES_REPO === 'YOUR-USERNAME/LoginTab-Releases') {
+                    alert('⚠️ Setup Required!\n\n' +
+                        '1. Create a PUBLIC GitHub repo: LoginTab-Releases\n' +
+                        '2. Create Release v4.0.12 and upload .exe file\n' +
+                        '3. Edit download.html line 541: GITHUB_RELEASES_REPO = "your-username/LoginTab-Releases"\n' +
+                        '4. Deploy to Vercel\n\n' +
+                        'Your source code repo stays PRIVATE!\n' +
+                        'See full instructions in download.html (line 506)');
+                } else {
+                    window.location.href = WINDOWS_URL;
+                }
+            });
+
+            downloadMac.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                if (GITHUB_RELEASES_REPO === 'YOUR-USERNAME/LoginTab-Releases') {
+                    alert('⚠️ Setup Required!\n\n' +
+                        '1. Create a PUBLIC GitHub repo: LoginTab-Releases\n' +
+                        '2. Create Release v4.0.12 and upload .dmg file\n' +
+                        '3. Edit download.html line 541: GITHUB_RELEASES_REPO = "your-username/LoginTab-Releases"\n' +
+                        '4. Deploy to Vercel\n\n' +
+                        'Your source code repo stays PRIVATE!\n' +
+                        'See full instructions in download.html (line 506)');
+                } else {
+                    window.location.href = MAC_URL;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
