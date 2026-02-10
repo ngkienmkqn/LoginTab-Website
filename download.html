@@ -430,6 +430,72 @@
     </section>
 
     <!-- ═══════════════════════════════════════ -->
+    <!-- macOS SETUP INSTRUCTIONS              -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="setup-instructions">
+        <div class="container">
+            <div class="setup-header">
+                <h2>🍎 macOS Setup Instructions</h2>
+                <p>If you don't have an Apple Store account or see "App is damaged", follow these steps:</p>
+            </div>
+
+            <div class="setup-steps">
+                <div class="setup-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Download & Install</h3>
+                        <p>Download the <code>.dmg</code> file and drag <strong>Login Tab</strong> to your
+                            <strong>Applications</strong> folder.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="setup-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Remove Quarantine (Required)</h3>
+                        <p>macOS blocks unsigned apps. Open <strong>Terminal</strong> and run:</p>
+                        <div class="code-block">
+                            <code>xattr -cr "/Applications/Login Tab.app"</code>
+                            <button class="copy-btn"
+                                onclick="copyToClipboard(this, 'xattr -cr &quot;/Applications/Login Tab.app&quot;')">
+                                <i class="fa-solid fa-copy"></i> Copy
+                            </button>
+                        </div>
+                        <p class="hint">If that doesn't work, try with <code>sudo</code>:</p>
+                        <div class="code-block">
+                            <code>sudo xattr -r -d com.apple.quarantine "/Applications/Login Tab.app"</code>
+                            <button class="copy-btn"
+                                onclick="copyToClipboard(this, 'sudo xattr -r -d com.apple.quarantine &quot;/Applications/Login Tab.app&quot;')">
+                                <i class="fa-solid fa-copy"></i> Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setup-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Open the App</h3>
+                        <p>Launch <strong>Login Tab</strong> from Launchpad or Applications folder.</p>
+                        <p class="hint">⚠️ First time: Go to <strong>System Preferences → Security & Privacy → Open
+                                Anyway</strong> if prompted.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setup-note">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>
+                    <strong>Why is this needed?</strong><br>
+                    LoginTab is not signed with an Apple Developer ID to keep the software 100% free and self-hosted.
+                    These commands simply tell macOS to trust the app.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
     <!-- FOOTER                                 -->
     <!-- ═══════════════════════════════════════ -->
     <footer class="footer">
@@ -532,6 +598,17 @@
                 window.location.href = MAC_ARM_URL;
             });
         });
+
+        // Copy to clipboard helper
+        function copyToClipboard(btn, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 2000);
+            });
+        }
     </script>
 </body>
 

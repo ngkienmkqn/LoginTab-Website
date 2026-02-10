@@ -1769,3 +1769,144 @@ section {
     margin-bottom: 20px;
     font-weight: 500;
 }
+/* -- Setup Instructions (macOS) -- */
+.setup-instructions {
+    background: var(--bg-surface);
+    padding: 80px 0;
+}
+
+.setup-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.setup-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.setup-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+.setup-steps {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.setup-step {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.step-content p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.step-content code {
+    background: var(--bg-elevated);
+    color: var(--teal);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.code-block {
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin: 12px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.code-block code {
+    background: transparent;
+    color: var(--accent);
+    font-size: 14px;
+    flex: 1;
+}
+
+.copy-btn {
+    background: var(--accent-soft);
+    border: 1px solid var(--border-accent);
+    color: var(--accent);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.hint {
+    font-size: 14px !important;
+    color: var(--text-dim) !important;
+}
+
+.setup-note {
+    background: var(--accent-soft);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    max-width: 800px;
+    margin: 32px auto 0;
+}
+
+.setup-note i {
+    color: var(--accent);
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.setup-note div {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.setup-note strong {
+    color: var(--text);
+}
