@@ -279,10 +279,15 @@
                         <div class="platform-name">Windows</div>
                         <div class="platform-info">Windows 10+ (64-bit)</div>
                     </a>
-                    <a href="#" class="download-btn" id="downloadMac">
+                    <a href="#" class="download-btn" id="downloadMacIntel">
                         <i class="fa-brands fa-apple platform-icon"></i>
-                        <div class="platform-name">macOS</div>
-                        <div class="platform-info">Universal (Intel & Apple Silicon)</div>
+                        <div class="platform-name">macOS (Intel)</div>
+                        <div class="platform-info">Intel processors</div>
+                    </a>
+                    <a href="#" class="download-btn" id="downloadMacArm">
+                        <i class="fa-brands fa-apple platform-icon"></i>
+                        <div class="platform-name">macOS (Apple Silicon)</div>
+                        <div class="platform-info">M1 / M2 / M3 / M4</div>
                     </a>
                 </div>
 
@@ -489,7 +494,8 @@
         // Platform detection & download logic
         document.addEventListener('DOMContentLoaded', () => {
             const downloadWindows = document.getElementById('downloadWindows');
-            const downloadMac = document.getElementById('downloadMac');
+            const downloadMacIntel = document.getElementById('downloadMacIntel');
+            const downloadMacArm = document.getElementById('downloadMacArm');
 
             // Detect user's platform
             const isWindows = navigator.platform.toLowerCase().includes('win');
@@ -500,87 +506,31 @@
                 downloadWindows.style.borderColor = 'var(--accent)';
                 downloadWindows.style.boxShadow = '0 0 20px rgba(187, 134, 252, 0.15)';
             } else if (isMac) {
-                downloadMac.style.borderColor = 'var(--accent)';
-                downloadMac.style.boxShadow = '0 0 20px rgba(187, 134, 252, 0.15)';
+                // Try to detect Apple Silicon vs Intel
+                downloadMacArm.style.borderColor = 'var(--accent)';
+                downloadMacArm.style.boxShadow = '0 0 20px rgba(187, 134, 252, 0.15)';
             }
 
-            // ========================================
-            // SETUP INSTRUCTIONS (READ THIS FIRST!)
-            // ========================================
-            // 
-            // Your .exe and .dmg files are TOO LARGE to host on Vercel (1GB each).
-            // Solution: GitHub Releases with a PUBLIC repo (only for releases, source stays private)
-            //
-            // STEP 1: Create a PUBLIC repo for releases only
-            //   - Go to: https://github.com/new
-            //   - Name: LoginTab-Releases (or LoginTab-Downloads)
-            //   - Visibility: PUBLIC ← This is OK! Only contains release files, no source code
-            //   - Create repository
-            //
-            // STEP 2: Initialize the repo (optional)
-            //   mkdir LoginTab-Releases
-            //   cd LoginTab-Releases
-            //   echo "# LoginTab Downloads" > README.md
-            //   git init
-            //   git add .
-            //   git commit -m "Initial commit"
-            //   git remote add origin https://github.com/YOUR-USERNAME/LoginTab-Releases.git
-            //   git push -u origin main
-            //
-            // STEP 3: Create a Release
-            //   - Go to: https://github.com/YOUR-USERNAME/LoginTab-Releases/releases/new
-            //   - Tag: v4.0.12
-            //   - Title: LoginTab v4.0.12
-            //   - Description: "Latest stable release"
-            //   - Upload files as Assets:
-            //     * LoginTab-Setup-4.0.12-Windows-x64.exe (~1GB)
-            //     * LoginTab-4.0.12-Universal.dmg (~1GB)
-            //   - Publish release
-            //
-            // STEP 4: Update the GITHUB_RELEASES_REPO below
-            //   Format: YOUR-USERNAME/LoginTab-Releases
-            //
-            // Example final URLs:
-            //   https://github.com/ngkienmkqn/LoginTab-Releases/releases/download/v4.0.12/LoginTab-Setup-4.0.12-Windows-x64.exe
-            //
-            // ========================================
-
-            const GITHUB_RELEASES_REPO = 'ngkienmkqn/LoginTab-Releases'; // ✅ Setup complete!
-            const VERSION = '4.0.12'; // No 'v' prefix
+            const GITHUB_RELEASES_REPO = 'ngkienmkqn/LoginTab-Releases';
+            const VERSION = '4.0.12';
 
             const WINDOWS_URL = `https://github.com/${GITHUB_RELEASES_REPO}/releases/download/${VERSION}/LoginTab_Setup-4.0.12.exe`;
-            const MAC_URL = `https://github.com/${GITHUB_RELEASES_REPO}/releases/download/${VERSION}/LoginTab-4.0.11.dmg`;
+            const MAC_INTEL_URL = `https://github.com/${GITHUB_RELEASES_REPO}/releases/download/${VERSION}/LoginTab-4.0.11.dmg`;
+            const MAC_ARM_URL = `https://github.com/${GITHUB_RELEASES_REPO}/releases/download/${VERSION}/LoginTab-4.0.11-arm64.dmg`;
 
             downloadWindows.addEventListener('click', (e) => {
                 e.preventDefault();
-
-                if (GITHUB_RELEASES_REPO === 'YOUR-USERNAME/LoginTab-Releases') {
-                    alert('⚠️ Setup Required!\n\n' +
-                        '1. Create a PUBLIC GitHub repo: LoginTab-Releases\n' +
-                        '2. Create Release v4.0.12 and upload .exe file\n' +
-                        '3. Edit download.html line 541: GITHUB_RELEASES_REPO = "your-username/LoginTab-Releases"\n' +
-                        '4. Deploy to Vercel\n\n' +
-                        'Your source code repo stays PRIVATE!\n' +
-                        'See full instructions in download.html (line 506)');
-                } else {
-                    window.location.href = WINDOWS_URL;
-                }
+                window.location.href = WINDOWS_URL;
             });
 
-            downloadMac.addEventListener('click', (e) => {
+            downloadMacIntel.addEventListener('click', (e) => {
                 e.preventDefault();
+                window.location.href = MAC_INTEL_URL;
+            });
 
-                if (GITHUB_RELEASES_REPO === 'YOUR-USERNAME/LoginTab-Releases') {
-                    alert('⚠️ Setup Required!\n\n' +
-                        '1. Create a PUBLIC GitHub repo: LoginTab-Releases\n' +
-                        '2. Create Release v4.0.12 and upload .dmg file\n' +
-                        '3. Edit download.html line 541: GITHUB_RELEASES_REPO = "your-username/LoginTab-Releases"\n' +
-                        '4. Deploy to Vercel\n\n' +
-                        'Your source code repo stays PRIVATE!\n' +
-                        'See full instructions in download.html (line 506)');
-                } else {
-                    window.location.href = MAC_URL;
-                }
+            downloadMacArm.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = MAC_ARM_URL;
             });
         });
     </script>
