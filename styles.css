@@ -1638,4 +1638,134 @@ section {
     .hero-actions {
         flex-direction: column;
     }
+}/* ── Use Cases (Finance) ── */
+.use-cases {
+    background: var(--bg-surface);
+    position: relative;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.use-case-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.use-case-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(245, 158, 11, 0.1);
+}
+
+.use-case-icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.use-case-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.use-case-scale {
+    display: block;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.challenge {
+    padding: 16px;
+    background: rgba(239, 68, 68, 0.08);
+    border-left: 3px solid var(--rose);
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.challenge strong {
+    color: var(--rose);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.solution {
+    padding: 16px;
+    background: rgba(245, 158, 11, 0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.solution strong {
+    color: var(--accent);
+    display: block;
+    margin-bottom: 12px;
+}
+
+.solution ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.solution li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: var(--text-muted);
+}
+
+.solution li::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.result {
+    padding: 16px;
+    background: rgba(20, 184, 166, 0.08);
+    border-left: 3px solid var(--teal);
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.result strong {
+    color: var(--teal);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.use-cases-cta {
+    text-align: center;
+    padding: 48px 32px;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-accent);
+}
+
+.use-cases-cta p {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 20px;
+    font-weight: 500;
 }
