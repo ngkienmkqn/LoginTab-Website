@@ -262,7 +262,7 @@
             <div class="download-content reveal">
                 <div class="download-version">
                     <i class="fa-solid fa-circle-check"></i>
-                    Latest Version: v5.0.0 — Released Feb 2026
+                    Latest Version: v5.0.1 — Released Feb 2026
                 </div>
                 <h1 class="download-title">
                     Download LoginTab<br>
@@ -296,6 +296,55 @@
                     Open source · No telemetry · EU-compliant ·
                     <a href="index.html#pricing" style="color: var(--accent);">Upgrade to Cloud</a> for sync & backup
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- WHAT'S NEW IN v5.0.1                  -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="info-section" style="padding-top: 60px; padding-bottom: 20px;">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">What's New</div>
+                <h2 class="section-title">v5.0.1 — <span class="gradient-text">Anti-Detect Hardening</span></h2>
+                <p class="section-subtitle">Stronger timezone masking, smarter fingerprint persistence, and invisible
+                    CDP stealth — all designed to keep your profiles undetectable.</p>
+            </div>
+            <div class="info-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                <div class="info-card reveal reveal-delay-1" style="border-left: 3px solid var(--accent);">
+                    <h3>
+                        <i class="fa-solid fa-globe" style="color: var(--accent);"></i>
+                        Auto Timezone Detection
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">
+                        Timezone is <strong>automatically detected</strong> from your proxy's exit IP on first launch.
+                        No manual configuration needed — your browser's timezone always matches your IP location,
+                        passing iphey and Pixelscan with <strong>"Trustworthy"</strong> status.
+                    </p>
+                </div>
+                <div class="info-card reveal reveal-delay-2" style="border-left: 3px solid var(--teal);">
+                    <h3>
+                        <i class="fa-solid fa-lock" style="color: var(--teal);"></i>
+                        Timezone Fingerprint Lock
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">
+                        Detected timezone is <strong>saved per profile</strong> like hardware fingerprint. Open the same
+                        profile on any machine — the timezone stays locked. No more mismatches across team members or
+                        devices.
+                    </p>
+                </div>
+                <div class="info-card reveal reveal-delay-3" style="border-left: 3px solid #f59e0b;">
+                    <h3>
+                        <i class="fa-solid fa-eye-slash" style="color: #f59e0b;"></i>
+                        CDP Stealth Mode
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">
+                        Advanced CDP domain management ensures <strong>captcha systems can't detect</strong> browser
+                        automation. Invisible to Shopee, Google, and other anti-bot platforms while keeping full browser
+                        control.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -578,7 +627,7 @@
             }
 
             const GITHUB_RELEASES_REPO = 'ngkienmkqn/LoginTab-Releases';
-            const VERSION = '5.0.0';
+            const VERSION = '5.0.1';
 
             const WINDOWS_URL = `https://github.com/${GITHUB_RELEASES_REPO}/releases/download/v${VERSION}/LoginTab.Setup.${VERSION}.exe`;
             const MAC_INTEL_URL = `https://github.com/${GITHUB_RELEASES_REPO}/releases/download/v${VERSION}/LoginTab-${VERSION}.dmg`;
